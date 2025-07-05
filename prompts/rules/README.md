@@ -1,28 +1,28 @@
 
 ```plantuml
-class User #yellow {
+class User #green {
 }
 
 namespace PurchaseContext{
-    class Purchaser #green {
+    class Purchaser #yellow {
     }
     
-    class Purchase #green {
+    class Purchase #pink {
     }
     
-    Purchaser <-- Purchase
+    Purchaser *-- Purchase
 }
 
 namespace SalesContext{
-    class Seller #green {
+    class Seller #yellow {
     }
     
-    class Sale #green {
+    class Sale #pink {
     }
     
-    Seller <-- Sale
+    Seller *-- Sale
 }
 
-User <|.. Purchaser
-User <|.. Seller
+User .. Purchaser
+User .. Seller
 ```
