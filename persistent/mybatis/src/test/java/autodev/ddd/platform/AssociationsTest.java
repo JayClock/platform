@@ -1,5 +1,6 @@
 package autodev.ddd.platform;
 
+import autodev.ddd.platform.model.Purchaser;
 import jakarta.inject.Inject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -40,5 +41,11 @@ public class AssociationsTest {
     @Test
     public void should_not_find_customer_if_not_exist() {
         assertTrue(users.findById("-1").isEmpty());
+    }
+
+    @Test
+    public void should_convert_purchaser_in_purchase_context(){
+        Purchaser purchaser = users.inPurchaseContext().asPurchaser(user);
+        assertEquals(purchaser.getIdentity(), user.getIdentity());
     }
 }

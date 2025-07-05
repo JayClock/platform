@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="autodev.ddd.platform.mybatis.PurchasersMapper">
+    <resultMap id="purchaserDescription" type="autodev.ddd.platform.description.PurchaserDescription">
+        <constructor>
+            <arg column="amount" jdbcType="DECIMAL" javaType="java.math.BigDecimal"/>
+        </constructor>
+    </resultMap>
+
+    <resultMap id="purchaser" type="autodev.ddd.platform.model.Purchaser">
+        <association property="user" resultMap="autodev.ddd.platform.mybatis.UsersMapper.user"/>
+        <association property="description" resultMap="purchaserDescription"/>
+    </resultMap>
+
+    <insert id="createPurchaser">
+        INSERT INTO PURCHASERS(USER_ID, AMOUNT)
+        SELECT #{userId}, #{amount}
+        WHERE EXISTS(SELECT 1 FROM USERS WHERE ID = #{userId})
+    </insert>
+    
+    <select id="findPurchaserByUserId" resultMap="purchaser">
+        SELECT
+            u.id,
+            u.name,
+            u.email,
+            p.amount
+        FROM "USERS" u
+        JOIN "PURCHASERS" p ON u.id = p.user_id
+        WHERE u.id = #{id}
+        LIMIT 1
+    </select>
+</mapper>
