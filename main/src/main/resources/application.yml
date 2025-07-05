@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+spring:
+  main:
+    banner-mode: "off"
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:platform;MODE=MySQL
+    username: sa
+    password: sa
+mybatis:
+  mapper-locations: classpath:mybatis/mappers/**/*.xml
+  configuration:
+    object-factory: support.mybatis.autodev.ddd.InjectableObjectFactory
+logging:
+  level:
+    root: info
+
+
