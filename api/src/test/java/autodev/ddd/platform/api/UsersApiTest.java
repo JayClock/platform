@@ -1,11 +1,11 @@
 package autodev.ddd.platform.api;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.hateoas.MediaTypes;
 import autodev.ddd.platform.description.UserDescription;
 import autodev.ddd.platform.model.User;
 import autodev.ddd.platform.model.Users;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.hateoas.MediaTypes;
 
 import java.util.Optional;
 
@@ -36,6 +36,7 @@ public class UsersApiTest extends ApiTest {
                 .body("id", is(user.getIdentity()))
                 .body("name", is(user.getDescription().name()))
                 .body("email", is(user.getDescription().email()))
-                .body("_links.self.href", is("/api/users/" + user.getIdentity()));
+                .body("_links.self.href", is("/api/users/" + user.getIdentity()))
+                .body("_links.purchaser.href", is("/api/users/" + user.getIdentity() + "/purchaser"));
     }
 }

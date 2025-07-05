@@ -1,9 +1,9 @@
 package autodev.ddd.platform.api;
 
+import autodev.ddd.platform.model.Users;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
-import autodev.ddd.platform.model.Users;
 
 @Path("/users")
 public class UsersApi {
@@ -16,6 +16,6 @@ public class UsersApi {
 
     @Path("{id}")
     public UserApi findById(@PathParam("id") String id) {
-        return users.findById(id).map(UserApi::new).orElse(null);
+        return users.findById(id).map(user -> new UserApi(users, user)).orElse(null);
     }
 }
