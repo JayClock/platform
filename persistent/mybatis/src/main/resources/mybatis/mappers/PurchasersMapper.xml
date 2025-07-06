@@ -10,13 +10,14 @@
     <resultMap id="purchaser" type="autodev.ddd.platform.model.Purchaser">
         <association property="user" resultMap="autodev.ddd.platform.mybatis.UsersMapper.user"/>
         <association property="description" resultMap="purchaserDescription"/>
+        <association property="purchases" resultMap="autodev.ddd.platform.mybatis.PurchasesMapper.purchases"/>
     </resultMap>
 
     <insert id="createPurchaser">
         INSERT INTO PURCHASERS(USER_ID, AMOUNT)
-        SELECT #{userId}, #{amount}
-        WHERE EXISTS(SELECT 1 FROM USERS WHERE ID = #{userId})
-          AND NOT EXISTS (SELECT 1 FROM PURCHASERS WHERE USER_ID = #{userId})
+        SELECT #{user_id}, #{amount}
+        WHERE EXISTS(SELECT 1 FROM USERS WHERE ID = #{user_id})
+          AND NOT EXISTS (SELECT 1 FROM PURCHASERS WHERE USER_ID = #{user_id})
     </insert>
     
     <select id="findPurchaserByUserId" resultMap="purchaser">
@@ -27,7 +28,7 @@
             p.amount
         FROM "USERS" u
         JOIN "PURCHASERS" p ON u.id = p.user_id
-        WHERE u.id = #{id}
+        WHERE u.id = #{user_id}
         LIMIT 1
     </select>
 </mapper>
