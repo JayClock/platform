@@ -12,8 +12,7 @@ spring:
     password: sa
 mybatis:
   mapper-locations: classpath:mybatis/mappers/**/*.xml
-  configuration:
-    object-factory: support.mybatis.autodev.ddd.InjectableObjectFactory
+  config-location: classpath:mybatis-config.xml
 logging:
   level:
     root: info

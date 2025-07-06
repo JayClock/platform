@@ -21,14 +21,20 @@ public class InjectableObjectFactory extends DefaultObjectFactory implements App
     @Override
     public <T> T create(Class<T> type) {
         T object = super.create(type);
-        this.context.getAutowireCapableBeanFactory().autowireBean(object);
+        ApplicationContext contextToUse = this.context != null ? this.context : ApplicationContextHolder.getApplicationContext();
+        if (contextToUse != null) {
+            contextToUse.getAutowireCapableBeanFactory().autowireBean(object);
+        }
         return object;
     }
 
     @Override
     public <T> T create(Class<T> type, List<Class<?>> constructorArgTypes, List<Object> constructorArgs) {
         T object = super.create(type, constructorArgTypes, constructorArgs);
-        this.context.getAutowireCapableBeanFactory().autowireBean(object);
+        ApplicationContext contextToUse = this.context != null ? this.context : ApplicationContextHolder.getApplicationContext();
+        if (contextToUse != null) {
+            contextToUse.getAutowireCapableBeanFactory().autowireBean(object);
+        }
         return object;
     }
 }
