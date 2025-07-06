@@ -18,7 +18,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Import(FlywayConfig.class)
 @ExtendWith(TestDataSetup.class)
 public class AssociationsTest {
-
     @Inject
     private Users users;
 
@@ -44,8 +43,8 @@ public class AssociationsTest {
     }
 
     @Test
-    public void should_convert_purchaser_in_purchase_context(){
+    public void should_get_purchases_of_purchaser(){
         Purchaser purchaser = users.inPurchaseContext().asPurchaser(user);
-        assertEquals(purchaser.getIdentity(), user.getIdentity());
+        assertEquals(0, purchaser.purchases().findAll().size());
     }
 }
