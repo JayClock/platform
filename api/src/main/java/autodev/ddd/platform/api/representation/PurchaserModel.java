@@ -19,5 +19,6 @@ public class PurchaserModel extends RepresentationModel<PurchaserModel> {
         this.id = purchaser.getIdentity();
         this.description = purchaser.getDescription();
         add(Link.of(ApiTemplates.purchaser(uriInfo).build(purchaser.getIdentity()).getPath(), "self"));
+        add(Link.of(ApiTemplates.purchases(uriInfo).build(purchaser.getIdentity()).getPath(), "purchases"));
     }
 }

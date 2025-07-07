@@ -50,6 +50,7 @@ public class UserApiTest extends ApiTest {
                 .then().statusCode(200)
                 .body("id", is(user.getIdentity()))
                 .body("amount", is(purchaser.getDescription().amount().intValue()))
-                .body("_links.self.href", is("/api/users/" + user.getIdentity() + "/purchaser"));
+                .body("_links.self.href", is("/api/users/" + user.getIdentity() + "/purchaser"))
+                .body("_links.purchases.href", is("/api/users/" + user.getIdentity() + "/purchaser/purchases"));
     }
 }
