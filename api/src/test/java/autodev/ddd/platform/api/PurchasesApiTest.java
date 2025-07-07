@@ -42,7 +42,7 @@ public class PurchasesApiTest extends ApiTest {
         user = new User("john.smith",
                 new UserDescription("John Smith", "john.smith@email.com"));
         PurchaserDescription purchaserDescription = new PurchaserDescription(BigDecimal.valueOf(100));
-        purchaser = new Purchaser(user, purchaserDescription, purchases);
+        purchaser = new Purchaser(user.getIdentity(), purchaserDescription, purchases);
     }
 
     @Test

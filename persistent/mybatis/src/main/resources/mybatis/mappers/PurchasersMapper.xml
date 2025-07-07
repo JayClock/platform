@@ -8,7 +8,7 @@
     </resultMap>
 
     <resultMap id="purchaser" type="autodev.ddd.platform.model.Purchaser">
-        <association property="user" resultMap="autodev.ddd.platform.mybatis.UsersMapper.user"/>
+        <id property="identity" column="user_id" javaType="String" jdbcType="BIGINT"/>
         <association property="description" resultMap="purchaserDescription"/>
         <association property="purchases" resultMap="autodev.ddd.platform.mybatis.PurchasesMapper.purchases"/>
     </resultMap>
@@ -19,16 +19,12 @@
         WHERE EXISTS(SELECT 1 FROM USERS WHERE ID = #{user_id})
           AND NOT EXISTS (SELECT 1 FROM PURCHASERS WHERE USER_ID = #{user_id})
     </insert>
-    
+
     <select id="findPurchaserByUserId" resultMap="purchaser">
-        SELECT
-            u.id,
-            u.name,
-            u.email,
-            p.amount
-        FROM "USERS" u
-        JOIN "PURCHASERS" p ON u.id = p.user_id
-        WHERE u.id = #{user_id}
+        SELECT p.USER_ID,
+               p.AMOUNT
+        FROM "PURCHASERS" p
+        WHERE p.USER_ID = #{user_id}
         LIMIT 1
     </select>
 </mapper>

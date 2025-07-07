@@ -13,7 +13,7 @@
     </resultMap>
 
     <resultMap id="purchases" type="autodev.ddd.platform.mybatis.associations.PurchaserPurchases">
-        <result column="id" property="purchaserId" javaType="String"/>
+        <result column="user_id" property="purchaserId" javaType="String"/>
     </resultMap>
 
     <select id="countPurchasesByPurchaserId" resultType="int">

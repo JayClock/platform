@@ -5,12 +5,12 @@ import autodev.ddd.archtype.HasMany;
 import autodev.ddd.platform.description.PurchaserDescription;
 
 public class Purchaser implements Entity<String, PurchaserDescription> {
-    private User user;
+    private String identity;
     private PurchaserDescription description;
     private Purchases purchases;
 
-    public Purchaser(User user, PurchaserDescription description, Purchases purchases) {
-        this.user = user;
+    public Purchaser(String identity, PurchaserDescription description, Purchases purchases) {
+        this.identity = identity;
         this.description = description;
         this.purchases = purchases;
     }
@@ -20,7 +20,7 @@ public class Purchaser implements Entity<String, PurchaserDescription> {
 
     @Override
     public String getIdentity() {
-        return user.getIdentity();
+        return this.identity;
     }
 
     @Override
