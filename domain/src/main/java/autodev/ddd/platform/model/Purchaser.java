@@ -15,11 +15,6 @@ public class Purchaser implements Entity<String, PurchaserDescription> {
         this.purchases = purchases;
     }
 
-    public Purchaser(User user, PurchaserDescription description) {
-        this.user = user;
-        this.description = description;
-    }
-
     private Purchaser() {
     }
 
