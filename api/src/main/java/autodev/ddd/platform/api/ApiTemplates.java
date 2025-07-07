@@ -11,4 +11,8 @@ public class ApiTemplates {
     public static UriBuilder purchaser(UriInfo uriInfo) {
         return user(uriInfo).path(UserApi.class, "getPurchaser");
     }
+
+    public static UriBuilder purchases(UriInfo uriInfo) {
+        return purchaser(uriInfo).path(PurchaserApi.class, "purchases");
+    }
 }
