@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="autodev.ddd.platform.mybatis.PurchasesMapper">
-    <resultMap id="purchaseDescription" type="autodev.ddd.platform.description.PurchaseDescription">
-        <constructor>
-            <arg column="created_at" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
-        </constructor>
-    </resultMap>
-
     <resultMap id="purchase" type="autodev.ddd.platform.model.Purchase">
         <id property="identity" column="id" jdbcType="BIGINT" javaType="String"/>
-        <association property="description" resultMap="purchaseDescription"/>
-    </resultMap>
-
-    <resultMap id="purchases" type="autodev.ddd.platform.mybatis.associations.PurchaserPurchases">
-        <result column="user_id" property="purchaserId" javaType="String"/>
+        <association property="description" javaType="autodev.ddd.platform.description.PurchaseDescription">
+            <constructor>
+                <arg column="created_at" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            </constructor>
+        </association>
     </resultMap>
 
     <select id="countPurchasesByPurchaserId" resultType="int">

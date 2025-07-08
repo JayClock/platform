@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="autodev.ddd.platform.mybatis.UsersMapper">
-    <resultMap id="userDescription" type="autodev.ddd.platform.description.UserDescription">
-        <constructor>
-            <arg column="name" jdbcType="VARCHAR" javaType="String"/>
-            <arg column="email" jdbcType="VARCHAR" javaType="String"/>
-        </constructor>
-    </resultMap>
-
     <resultMap id="user" type="autodev.ddd.platform.model.User">
         <id property="identity" column="id" jdbcType="BIGINT" javaType="String"/>
-        <association property="description" resultMap="userDescription"/>
+        <association property="description" javaType="autodev.ddd.platform.description.UserDescription">
+            <constructor>
+                <arg column="name" jdbcType="VARCHAR" javaType="String"/>
+                <arg column="email" jdbcType="VARCHAR" javaType="String"/>
+            </constructor>
+        </association>
     </resultMap>
 
     <select id="findUserById" resultMap="user">
