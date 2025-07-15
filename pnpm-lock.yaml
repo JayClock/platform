@@ -160,6 +160,9 @@ importers:
 
   libs/frontend/domain:
     dependencies:
+      '@preact/signals-core':
+        specifier: ^1.11.0
+        version: 1.11.0
       tslib:
         specifier: ^2.3.0
         version: 2.8.1
@@ -1747,6 +1750,9 @@ packages:
 
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
+
+  '@preact/signals-core@1.11.0':
+    resolution: {integrity: sha512-jglbibeWHuFRzEWVFY/TT7wB1PppJxmcSfUHcK+2J9vBRtiooMfw6tAPttojNYrrpdGViqAYCbPpmWYlMm+eMQ==}
 
   '@rolldown/pluginutils@1.0.0-beta.19':
     resolution: {integrity: sha512-3FL3mnMbPu0muGOCaKAhhFEYmqv9eTfPSJRJmANrCwtgK8VuxpsZDGK+m0LYAGoyO8+0j5uRe4PeyPDK1yA/hA==}
@@ -7943,6 +7949,8 @@ snapshots:
       playwright: 1.54.1
 
   '@polka/url@1.0.0-next.29': {}
+
+  '@preact/signals-core@1.11.0': {}
 
   '@rolldown/pluginutils@1.0.0-beta.19': {}
 

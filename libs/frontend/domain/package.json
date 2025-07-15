@@ -19,6 +19,7 @@
     "name": "domain"
   },
   "dependencies": {
+    "@preact/signals-core": "^1.11.0",
     "tslib": "^2.3.0"
   }
 }
