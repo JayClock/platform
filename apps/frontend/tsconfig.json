@@ -3,6 +3,9 @@
   "include": [],
   "references": [
     {
+      "path": "../../libs/frontend/persistent-inversify"
+    },
+    {
       "path": "../../libs/frontend/domain"
     },
     {
