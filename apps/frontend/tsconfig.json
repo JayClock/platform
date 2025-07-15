@@ -3,6 +3,9 @@
   "include": [],
   "references": [
     {
+      "path": "../../libs/frontend/domain"
+    },
+    {
       "path": "./tsconfig.app.json"
     },
     {

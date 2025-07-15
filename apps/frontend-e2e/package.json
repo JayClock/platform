@@ -1,10 +1,10 @@
 {
-  "name": "@fullstack/frontend-e2e",
+  "name": "frontend-e2e",
   "version": "0.0.1",
   "private": true,
   "nx": {
     "implicitDependencies": [
-      "@fullstack/frontend"
+      "frontend"
     ]
   }
 }

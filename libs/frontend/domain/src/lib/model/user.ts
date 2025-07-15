@@ -16,4 +16,11 @@ export class User implements Entity<string, UserDescription> {
   getDescription(): UserDescription {
     return this.description.value;
   }
+
+  changeName() {
+    this.description.value = {
+      ...this.description.value,
+      name: 'JayClock',
+    };
+  }
 }

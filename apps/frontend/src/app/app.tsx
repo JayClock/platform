@@ -1,11 +1,16 @@
-// Uncomment this line to use CSS modules
-// import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
+import { User } from '@platform/domain';
+import { useSignals } from '@preact/signals-react/runtime';
+import { useState } from 'react';
 
 export function App() {
+  useSignals();
+  const [user] = useState(() => new User('1', { name: 'aaa', email: 'bbb' }));
+  const description = user.getDescription();
   return (
     <div>
-      <NxWelcome title="@fullstack/frontend" />
+      {description.email}
+      {description.name}
+      <button onClick={() => user.changeName()}>changeName</button>
     </div>
   );
 }

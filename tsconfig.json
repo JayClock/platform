@@ -11,6 +11,9 @@
     },
     {
       "path": "./libs/frontend/domain"
+    },
+    {
+      "path": "./libs/frontend/domain"
     }
   ]
 }

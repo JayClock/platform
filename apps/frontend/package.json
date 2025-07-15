@@ -1,5 +1,11 @@
 {
   "name": "@fullstack/frontend",
   "version": "0.0.1",
-  "private": true
+  "private": true,
+  "nx": {
+    "name": "frontend"
+  },
+  "dependencies": {
+    "@preact/signals-react": "^3.2.1"
+  }
 }

@@ -8,7 +8,7 @@
 
 ## Finish your remote caching setup
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/gZ1epy5LTi)
+[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/pJdWUQPrrD)
 
 
 ## Generate a library
