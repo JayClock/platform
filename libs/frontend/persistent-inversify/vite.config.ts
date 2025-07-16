@@ -19,4 +19,13 @@ export default defineConfig(() => ({
       provider: 'v8' as const,
     },
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
 }));
